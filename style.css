@@ -9,7 +9,7 @@ body {
   width: 80%;
   max-width: 800px;
   margin: 50px auto;
-  background: white;
+  background: rgb(160, 160, 160);
   padding: 25px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -36,7 +36,7 @@ input {
 button {
   padding: 10px 15px;
   border: none;
-  background: #007bff;
+  background: #00cd18;
   color: white;
   border-radius: 5px;
   cursor: pointer;
@@ -44,7 +44,7 @@ button {
 }
 
 button:hover {
-  background: #0056b3;
+  background: #9200b3;
 }
 
 table {
