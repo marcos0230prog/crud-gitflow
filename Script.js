@@ -46,7 +46,6 @@ function deleteUser(index) {
   
   if (confirmDelete) {
     users.splice(index, 1);
-    saveData(); // 👈 IMPORTANTE
     renderUsers();
   }
 }
