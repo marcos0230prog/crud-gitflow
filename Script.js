@@ -1,9 +1,11 @@
 let users = [];
 
+// guardar datos
 function saveData() {
   localStorage.setItem("users", JSON.stringify(users));
 }
 
+// renderizar tabla
 function renderUsers() {
   const table = document.getElementById("userTable");
   table.innerHTML = "";
@@ -22,12 +24,10 @@ function renderUsers() {
   });
 }
 
+// agregar usuario
 function addUser() {
-  const nameInput = document.getElementById("name");
-  const emailInput = document.getElementById("email");
-
-  const name = nameInput.value;
-  const email = emailInput.value;
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
 
   if (name.trim() === "" || email.trim() === "") {
     alert("Todos los campos son obligatorios");
@@ -37,12 +37,14 @@ function addUser() {
   users.push({ name, email });
 
   saveData();
-  renderUsers();
 
-  nameInput.value = "";
-  emailInput.value = "";
+  document.getElementById("name").value = "";
+  document.getElementById("email").value = "";
+
+  renderUsers();
 }
 
+// eliminar usuario
 function deleteUser(index) {
   const confirmDelete = confirm("¿Seguro que quieres eliminar este usuario?");
   
@@ -53,6 +55,7 @@ function deleteUser(index) {
   }
 }
 
+// editar usuario
 function editUser(index) {
   const newName = prompt("Nuevo nombre:", users[index].name);
   const newEmail = prompt("Nuevo email:", users[index].email);
@@ -67,6 +70,7 @@ function editUser(index) {
   renderUsers();
 }
 
+// cargar datos al iniciar
 window.onload = () => {
   const data = localStorage.getItem("users");
   if (data) {
@@ -74,11 +78,3 @@ window.onload = () => {
     renderUsers();
   }
 };
-  if (!newName || !newEmail) {
-    alert("No puedes dejar campos vacíos");
-    return;
-  }
-
-  users[index] = { name: newName, email: newEmail };
-  renderUsers();
-}
