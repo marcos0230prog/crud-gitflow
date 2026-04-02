@@ -26,10 +26,10 @@ function addUser() {
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
 
-  if (!name || !email) {
-    alert("Completa todos los campos");
-    return;
-  }
+if (name.trim() === "" || email.trim() === "") {
+  alert("Todos los campos son obligatorios");
+  return;
+}
 
   users.push({ name, email });
 
