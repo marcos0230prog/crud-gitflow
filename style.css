@@ -95,6 +95,8 @@ td button:hover {
   opacity: 0.8;
 }
 
+tr {
+  animation: fadeRow 0.3s ease-in-out;
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
