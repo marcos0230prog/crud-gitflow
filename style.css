@@ -13,6 +13,7 @@ body {
   padding: 25px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 h2 {
@@ -34,17 +35,27 @@ button:active {
   transform: scale(0.95);
 }
 
-.container {
-  animation: fadeIn 0.5s ease-in-out;
+input:focus {
+  outline: none;
+  border-color: #007bff;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+button {
+  padding: 10px 15px;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 button:hover {
   background: #0056b3;
+}
+
+button:active {
+  transform: scale(0.95);
 }
 
 table {
@@ -67,7 +78,6 @@ tr:hover {
   background: #f1f1f1;
 }
 
-/* Botones dentro de la tabla */
 td button {
   margin-right: 5px;
   background: #28a745;
@@ -79,4 +89,9 @@ td button:last-child {
 
 td button:hover {
   opacity: 0.8;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
