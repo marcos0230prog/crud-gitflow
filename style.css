@@ -9,7 +9,7 @@ body {
   width: 80%;
   max-width: 800px;
   margin: 50px auto;
-  background: white;
+  background: rgb(160, 160, 160);
   padding: 25px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -43,15 +43,15 @@ input:focus {
 button {
   padding: 10px 15px;
   border: none;
-  background: #007bff;
-  color: white;
+  background: #00cd18;
+  color: rgb(0, 0, 0);
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
 }
 
 button:hover {
-  background: #0056b3;
+  background: #9200b3;
 }
 
 button:active {
@@ -59,8 +59,8 @@ button:active {
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 th {
@@ -84,7 +84,7 @@ td button {
 }
 
 td button:last-child {
-  background: #dc3545;
+  background: linear-gradient(135deg, #eef2f3, #dfe9f3);
 }
 
 td button:hover {
