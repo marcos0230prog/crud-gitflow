@@ -13,6 +13,7 @@ body {
   padding: 25px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 h2 {
@@ -25,19 +26,29 @@ h2 {
   gap: 10px;
   margin-bottom: 20px;
 }
+input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+input:focus {
+  outline: none;
+  border-color: #007bff;
+}
 
 input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 button {
   padding: 10px 15px;
   border: none;
   background: #00cd18;
-  color: white;
+  color: rgb(255, 3, 3);
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
@@ -47,9 +58,13 @@ button:hover {
   background: #9200b3;
 }
 
+button:active {
+  transform: scale(0.95);
+}
+
 table {
-  width: 100%;
-  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 th {
@@ -67,14 +82,13 @@ tr:hover {
   background: #f1f1f1;
 }
 
-/* Botones dentro de la tabla */
 td button {
   margin-right: 5px;
   background: #28a745;
 }
 
 td button:last-child {
-  background: #dc3545;
+  background: linear-gradient(135deg, #eef2f3, #dfe9f3);
 }
 
 td button:hover {
@@ -83,4 +97,7 @@ td button:hover {
 
 tr {
   animation: fadeRow 0.3s ease-in-out;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
