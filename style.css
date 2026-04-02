@@ -37,7 +37,7 @@ button {
   padding: 10px 15px;
   border: none;
   background: #00cd18;
-  color: white;
+  color: rgb(0, 0, 0);
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
@@ -48,8 +48,8 @@ button:hover {
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 th {
@@ -74,7 +74,7 @@ td button {
 }
 
 td button:last-child {
-  background: #dc3545;
+  background: linear-gradient(135deg, #eef2f3, #dfe9f3);
 }
 
 td button:hover {
