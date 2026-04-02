@@ -1,5 +1,9 @@
 let users = [];
 
+function saveData() {
+  localStorage.setItem("users", JSON.stringify(users));
+}
+
 function renderUsers() {
   const table = document.getElementById("userTable");
   table.innerHTML = "";
@@ -29,7 +33,8 @@ function addUser() {
 
   users.push({ name, email });
 
-  // limpiar inputs
+  saveData(); // 👈 IMPORTANTE
+
   document.getElementById("name").value = "";
   document.getElementById("email").value = "";
 
@@ -37,8 +42,13 @@ function addUser() {
 }
 
 function deleteUser(index) {
-  users.splice(index, 1);
-  renderUsers();
+  const confirmDelete = confirm("¿Seguro que quieres eliminar este usuario?");
+  
+  if (confirmDelete) {
+    users.splice(index, 1);
+    saveData(); // 👈 IMPORTANTE
+    renderUsers();
+  }
 }
 
 function editUser(index) {
@@ -47,6 +57,15 @@ function editUser(index) {
 
   if (newName && newEmail) {
     users[index] = { name: newName, email: newEmail };
+    saveData(); // 👈 IMPORTANTE
     renderUsers();
   }
 }
+
+window.onload = () => {
+  const data = localStorage.getItem("users");
+  if (data) {
+    users = JSON.parse(data);
+    renderUsers();
+  }
+};
