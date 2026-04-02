@@ -74,3 +74,11 @@ window.onload = () => {
     renderUsers();
   }
 };
+  if (!newName || !newEmail) {
+    alert("No puedes dejar campos vacíos");
+    return;
+  }
+
+  users[index] = { name: newName, email: newEmail };
+  renderUsers();
+}
