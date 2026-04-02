@@ -45,8 +45,11 @@ function editUser(index) {
   const newName = prompt("Nuevo nombre:", users[index].name);
   const newEmail = prompt("Nuevo email:", users[index].email);
 
-  if (newName && newEmail) {
-    users[index] = { name: newName, email: newEmail };
-    renderUsers();
+  if (!newName || !newEmail) {
+    alert("No puedes dejar campos vacíos");
+    return;
   }
+
+  users[index] = { name: newName, email: newEmail };
+  renderUsers();
 }
