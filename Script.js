@@ -1,5 +1,9 @@
 let users = [];
 
+function saveData() {
+  localStorage.setItem("users", JSON.stringify(users));
+}
+
 function renderUsers() {
   const table = document.getElementById("userTable");
   table.innerHTML = "";
@@ -22,14 +26,15 @@ function addUser() {
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
 
-  if (!name || !email) {
-    alert("Completa todos los campos");
-    return;
-  }
+if (name.trim() === "" || email.trim() === "") {
+  alert("Todos los campos son obligatorios");
+  return;
+}
 
   users.push({ name, email });
 
-  // limpiar inputs
+  saveData(); // 👈 IMPORTANTE
+
   document.getElementById("name").value = "";
   document.getElementById("email").value = "";
 
@@ -51,6 +56,23 @@ function editUser(index) {
 
   if (newName && newEmail) {
     users[index] = { name: newName, email: newEmail };
+    saveData(); // 👈 IMPORTANTE
     renderUsers();
   }
+}
+
+window.onload = () => {
+  const data = localStorage.getItem("users");
+  if (data) {
+    users = JSON.parse(data);
+    renderUsers();
+  }
+};
+  if (!newName || !newEmail) {
+    alert("No puedes dejar campos vacíos");
+    return;
+  }
+
+  users[index] = { name: newName, email: newEmail };
+  renderUsers();
 }
