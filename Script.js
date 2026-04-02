@@ -37,8 +37,12 @@ function addUser() {
 }
 
 function deleteUser(index) {
-  users.splice(index, 1);
-  renderUsers();
+  const confirmDelete = confirm("¿Seguro que quieres eliminar este usuario?");
+  
+  if (confirmDelete) {
+    users.splice(index, 1);
+    renderUsers();
+  }
 }
 
 function editUser(index) {
