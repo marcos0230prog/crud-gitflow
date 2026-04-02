@@ -29,7 +29,6 @@ function addUser() {
 
   users.push({ name, email });
 
-  // limpiar inputs
   document.getElementById("name").value = "";
   document.getElementById("email").value = "";
 
