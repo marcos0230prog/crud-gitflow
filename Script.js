@@ -23,22 +23,24 @@ function renderUsers() {
 }
 
 function addUser() {
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
 
-  if (!name || !email) {
-    alert("Completa todos los campos");
+  const name = nameInput.value;
+  const email = emailInput.value;
+
+  if (name.trim() === "" || email.trim() === "") {
+    alert("Todos los campos son obligatorios");
     return;
   }
 
   users.push({ name, email });
 
-  saveData(); // 👈 IMPORTANTE
-
-  document.getElementById("name").value = "";
-  document.getElementById("email").value = "";
-
+  saveData();
   renderUsers();
+
+  nameInput.value = "";
+  emailInput.value = "";
 }
 
 function deleteUser(index) {
@@ -46,7 +48,7 @@ function deleteUser(index) {
   
   if (confirmDelete) {
     users.splice(index, 1);
-    saveData(); // 👈 IMPORTANTE
+    saveData();
     renderUsers();
   }
 }
@@ -55,11 +57,14 @@ function editUser(index) {
   const newName = prompt("Nuevo nombre:", users[index].name);
   const newEmail = prompt("Nuevo email:", users[index].email);
 
-  if (newName && newEmail) {
-    users[index] = { name: newName, email: newEmail };
-    saveData(); // 👈 IMPORTANTE
-    renderUsers();
+  if (!newName || !newEmail) {
+    alert("No puedes dejar campos vacíos");
+    return;
   }
+
+  users[index] = { name: newName, email: newEmail };
+  saveData();
+  renderUsers();
 }
 
 window.onload = () => {
