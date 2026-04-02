@@ -33,11 +33,15 @@ input {
   border-radius: 5px;
 }
 
+input {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
 button {
   padding: 10px 15px;
   border: none;
   background: #00cd18;
-  color: white;
+  color: rgb(255, 3, 3);
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
@@ -74,7 +78,7 @@ td button {
 }
 
 td button:last-child {
-  background: #dc3545;
+  background: linear-gradient(135deg, #eef2f3, #dfe9f3);
 }
 
 td button:hover {
