@@ -25,22 +25,22 @@ h2 {
   gap: 10px;
   margin-bottom: 20px;
 }
-
-input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+input:focus {
+  outline: none;
+  border-color: #007bff;
 }
 
-button {
-  padding: 10px 15px;
-  border: none;
-  background: #007bff;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
+button:active {
+  transform: scale(0.95);
+}
+
+.container {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 button:hover {
